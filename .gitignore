@@ -1,8 +1,7 @@
 /*
 
-!.gitignore
-!README.md
-!images
+!build/
+!build/
+!images/
 !gulpfile.js
-!images
-!build/*
+!README.md
