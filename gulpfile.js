@@ -14,40 +14,49 @@ var paths = {
  images: ['frontend-nanodegree-mobile-portfolio/css/.'],
 };
 
-// Concats & minifies js files and outputs them to build/js/app.js 
+// Concats & minifies js files and outputs them to dist/js/app.js 
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts)
         .pipe(sourcemaps.init())
             .pipe(uglify())
             .pipe(concatify('perfmatters.js'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./build/js/'));
+        .pipe(gulp.dest('./dist/js/'));
 });
 
-// Minifies our HTML files and outputs them to build/*.html
+// Minifies our HTML files and outputs them to dist/*.html
 gulp.task('content', function() {
     return gulp.src(paths.content)
         .pipe(minifyhtml({
             empty: true,
             quotes: true
         }))
-        .pipe(gulp.dest('./build'));
+        .pipe(gulp.dest('./dist'));
 });
 
 //Minifies CSS
 gulp.task('styles', function(){
     gulp.src('css/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./build/css/minCSS'));
+        .pipe(gulp.dest('./dist/css/minCSS'));
 });
 
-// Optimizes our image files and outputs them to build/image/*
-gulp.task('images', function() {
+// Optimizes our image files and outputs them to dist/image/*
+//gulp.task('images', function() {
+//    return gulp.src(paths.images)
+//                .pipe(imageop({
+//                    optimizationLevel: 5
+//                }))
+//                .pipe(gulp.dest('./dist/images'));
+//});
+
+gulp.task('images', function(cb) {
     return gulp.src(paths.images)
-                .pipe(imageop({
-                    optimizationLevel: 5
-                }))
-                .pipe(gulp.dest('./build/image'));
+        gulp.src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg']).pipe(imageop({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        })).pipe(gulp.dest('./dist/images')).on('end', cb).on('error', cb);
 });
 
 
