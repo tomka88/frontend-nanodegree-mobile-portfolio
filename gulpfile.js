@@ -24,6 +24,16 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./dist/js/'));
 });
 
+//Minifies and concats the pizza project's js files
+gulp.task('pizza-scripts', function() {
+    return gulp.src(['./views/js/*.js'])
+        .pipe(sourcemaps.init())
+            .pipe(uglify())
+            .pipe(concatify('main.js'))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/views/js/'));
+});
+
 // Minifies our HTML files and outputs them to dist/*.html
 gulp.task('content', function() {
     return gulp.src(paths.content)
@@ -34,6 +44,16 @@ gulp.task('content', function() {
         .pipe(gulp.dest('./dist'));
 });
 
+// Minifies Pizza project's HTML files and outputs them to dist/views/*.html
+gulp.task('pizza-content', function() {
+    return gulp.src(['./views/*.html'])
+        .pipe(minifyhtml({
+            empty: true,
+            quotes: true
+        }))
+        .pipe(gulp.dest('./dist/views/'));
+});
+
 //Minifies CSS
 gulp.task('styles', function(){
     gulp.src('css/*.css')
@@ -41,14 +61,13 @@ gulp.task('styles', function(){
         .pipe(gulp.dest('./dist/css/'));
 });
 
-// Optimizes our image files and outputs them to dist/image/*
-//gulp.task('images', function() {
-//    return gulp.src(paths.images)
-//                .pipe(imageop({
-//                    optimizationLevel: 5
-//                }))
-//                .pipe(gulp.dest('./dist/images'));
-//});
+//Minifies pizza CSS
+gulp.task('pizza-styles', function(){
+    gulp.src(['./views/css/*.css'])
+        .pipe(minifyCSS())
+        .pipe(gulp.dest('./dist/views/css/'));
+});
+
 
 gulp.task('images', function(cb) {
     return gulp.src(paths.images)
@@ -59,5 +78,14 @@ gulp.task('images', function(cb) {
         .pipe(gulp.dest('./dist/images'));
 });
 
+gulp.task('pizza-images', function(cb) {
+    return gulp.src(['./views/images/*'])
+        .pipe(imageop({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true}))
+        .pipe(gulp.dest('./dist/views/images/'));
+});
 
-gulp.task('default', ['scripts', 'content', 'styles','images']);
+
+gulp.task('default', ['scripts', 'content', 'styles','images', 'pizza-scripts', 'pizza-content', 'pizza-styles', 'pizza-images']);
