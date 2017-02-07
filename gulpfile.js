@@ -10,8 +10,8 @@ var gulp = require('gulp'),
 var paths = {
  scripts: ['scripts/*.js'],
  content: ['index.html', 'ptoject-2048.html', 'project-mobile.html', 'project-webperf.html'], 
- styles: ['frontend-nanodegree-mobile-portfolio/css/.css'],
- images: ['frontend-nanodegree-mobile-portfolio/css/.'],
+ styles: ['./css/.css'],
+ images: ['./images/*'],
 };
 
 // Concats & minifies js files and outputs them to dist/js/app.js 
@@ -38,7 +38,7 @@ gulp.task('content', function() {
 gulp.task('styles', function(){
     gulp.src('css/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./dist/css/minCSS'));
+        .pipe(gulp.dest('./dist/css/'));
 });
 
 // Optimizes our image files and outputs them to dist/image/*
@@ -52,11 +52,11 @@ gulp.task('styles', function(){
 
 gulp.task('images', function(cb) {
     return gulp.src(paths.images)
-        gulp.src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg']).pipe(imageop({
+        .pipe(imageop({
             optimizationLevel: 5,
             progressive: true,
-            interlaced: true
-        })).pipe(gulp.dest('./dist/images')).on('end', cb).on('error', cb);
+            interlaced: true}))
+        .pipe(gulp.dest('./dist/images'));
 });
 
 
