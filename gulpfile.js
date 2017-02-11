@@ -64,18 +64,18 @@ gulp.task('styles', function(){
         .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('critical', function(cb){
-    return gulp.src(['./*.html'])
-        .pipe(critical({
-            base: './dist/',
-            inline: true,
-            css: ['dist/css/style.css'],
-            minify: true,
-            width: 320,
-            height: 480
-        }))
-        .pipe(gulp.dest('./dist'));
-});
+// gulp.task('critical', function(cb){
+//     return gulp.src(['./*.html'])
+//         .pipe(critical({
+//             base: './dist/',
+//             inline: true,
+//             css: ['dist/css/style.css'],
+//             minify: true,
+//             width: 320,
+//             height: 480
+//         }))
+//         .pipe(gulp.dest('./dist'));
+// });
 
 //Minifies pizza CSS
 gulp.task('pizza-styles', function(){
