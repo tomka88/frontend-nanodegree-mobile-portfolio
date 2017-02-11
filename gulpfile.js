@@ -117,4 +117,4 @@ gulp.task('pizza-resize', function(cb) {
 });
 
 
-gulp.task('default', ['scripts', 'content', 'styles', 'critical' ,'images', 'pizza-scripts', 'pizza-content', 'pizza-styles', 'pizza-images', 'pizza-resize']);
+gulp.task('default', ['scripts', 'content', 'styles' ,'images', 'pizza-scripts', 'pizza-content', 'pizza-styles', 'pizza-images', 'pizza-resize']);
