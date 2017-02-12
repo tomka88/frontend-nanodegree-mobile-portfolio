@@ -1,4 +1,25 @@
+
 ## Website Performance Optimization portfolio project
+
+Please find the optimised files in the [dist](dist) folder of this repo. I tried to automate everything with gulp, including inlining the css with the help of gulp [critical](https://www.npmjs.com/package/critical).
+
+On the [gh-pages](https://github.com/tomka88/frontend-nanodegree-mobile-portfolio/tree/gh-pages) branch you can equally fin the optimised files.
+
+Follow [this link](tomka88.github.io/frontend-nanodegree-mobile-portfolio/) to find the live mobile portfolio project and [this link](https://tomka88.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html) for the live pizza project.
+
+List of optimisations:
+- minfied css, javascript and html
+- resized and optimized pictures
+- used gulp as a task runner
+- inlined crucial css
+- asynced the google analytics file
+- load google fonts asynchronously for page speed
+- used gulp for the build process as task runner
+- optimised main.js for the pizza project to go below 60 FPS
+
+-----------------------
+
+## Original Readme
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
