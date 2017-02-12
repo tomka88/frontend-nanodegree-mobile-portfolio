@@ -64,7 +64,6 @@ gulp.task('styles', function(){
         .pipe(gulp.dest('./dist/css/'));
 });
 
-
 //inlines critical css in the index.html
 gulp.task('critical', ['content'], function(cb){
     critical.generate({
@@ -117,6 +116,5 @@ gulp.task('pizza-resize', function(cb) {
         }))
         .pipe(gulp.dest('./dist/views/images/'));
 });
-
 
 gulp.task('default', ['scripts', 'styles', 'content', 'critical' ,'images', 'pizza-scripts', 'pizza-content', 'pizza-styles', 'pizza-images', 'pizza-resize']);
