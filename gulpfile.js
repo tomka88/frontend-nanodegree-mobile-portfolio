@@ -70,11 +70,11 @@ gulp.task('critical', ['content'], function(cb){
         base: './dist/',
         inline: true,
         src: './index.html',
-        css: ['./css/style.css'],
+        css: ['./css/style.css', './css/mobile.css'],
         dest: './index.html',
         minify: true,
-        width: 320,
-        height: 480
+        width: 412,
+        height: 732
     });
 });
 
