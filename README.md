@@ -3,9 +3,11 @@
 
 Please find the optimised files in the [dist](dist) folder of this repo. I tried to automate everything with gulp, including inlining the css with the help of gulp [critical](https://www.npmjs.com/package/critical).
 
-On the [gh-pages](https://github.com/tomka88/frontend-nanodegree-mobile-portfolio/tree/gh-pages) branch you can equally fin the optimised files.
+On the [gh-pages](https://github.com/tomka88/frontend-nanodegree-mobile-portfolio/tree/gh-pages) branch you can equally find the optimised files.
 
-Follow [this link](tomka88.github.io/frontend-nanodegree-mobile-portfolio/) to find the live mobile portfolio project and [this link](https://tomka88.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html) for the live pizza project.
+Follow these links to reach projects on GitHub pages:
+  - [mobile portfolio](tomka88.github.io/frontend-nanodegree-mobile-portfolio/)
+  [this link](https://tomka88.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html) for the live pizza project.
 
 List of optimisations:
 - minfied css, javascript and html
@@ -15,7 +17,18 @@ List of optimisations:
 - asynced the google analytics file
 - load google fonts asynchronously for page speed
 - used gulp for the build process as task runner
-- optimised main.js for the pizza project to go below 60 FPS
+- Pizza project optimisations:
+  - optimised main.js for the pizza project to go below 60 FPS
+  - removed # from the id name pizzaSize and changed web API call getElementById
+  - removed # from the id name randomPizzas
+  - created randPiz variable, moved it outside of the for loop and using getElementsByClassName web API 
+	removed "." from the class name
+  - using getElementsByClassName instead of querySelectorAll
+  - created top variable and moved it outside of the for loop
+  - moved var elem outside of the for loop
+  - created movingPizzas variable and moved it outside of the for loop
+
+
 
 -----------------------
 
