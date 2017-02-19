@@ -9,7 +9,7 @@ Follow these links to reach projects on GitHub pages:
   - [mobile portfolio](tomka88.github.io/frontend-nanodegree-mobile-portfolio/)
   [this link](https://tomka88.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html) for the live pizza project.
 
-List of optimisations:
+##List of optimisations:
 - minfied css, javascript and html
 - resized and optimized pictures
 - used gulp as a task runner
@@ -28,7 +28,8 @@ List of optimisations:
   - moved var elem outside of the for loop
   - created movingPizzas variable and moved it outside of the for loop
 
-
+##Building the project
+running `gulp` builds the optimised version of the in the dist folder
 
 -----------------------
 
